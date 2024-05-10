@@ -1,0 +1,26 @@
+import time
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+driver = webdriver.Chrome()
+driver.get("https://www.google.com/")
+time.sleep(4)
+driver.maximize_window()
+g = driver.find_element(By.NAME, "q").send_keys("Indian Foods"+Keys.RETURN)
+time.sleep(4)
+print(driver.title)
+driver.back()
+time.sleep(3)
+driver.get("https://www.youtube.com")
+print(driver.title)
+driver.refresh()
+time.sleep(5)
+y = driver.find_element(By.XPATH, "/html/body/ytd-app/div[1]/div/ytd-masthead/div[4]/div[2]/ytd-searchbox/form/div[1]/div[1]/input").send_keys("2020 full movie tamil"+Keys.RETURN)
+time.sleep(5)
+y1 = driver.find_element(By.PARTIAL_LINK_TEXT, "Tren")
+y1.click()
+driver.back()
+time.sleep(3)
+driver.forward()
+driver.refresh()
+time.sleep(10)
